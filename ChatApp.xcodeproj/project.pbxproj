@@ -37,7 +37,7 @@
 		4AB3954025B1D65600B55059 /* TalkRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */; };
 		4AB3954525B1D80300B55059 /* TalkRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3954425B1D80300B55059 /* TalkRoomCell.swift */; };
 		4ABCC29725C833640008F056 /* TalkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCC29625C833640008F056 /* TalkListCell.swift */; };
-		4ABCC2DF25C841BC0008F056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2DE25C841BC0008F056 /* GoogleService-Info.plist */; };
+		4ABCC2E725C84A9C0008F056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */; };
 		4AEFDBD625ADC9E3002F71F3 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDBD525ADC9E3002F71F3 /* ColorSet.swift */; };
 		4AEFDBE125AF1F9F002F71F3 /* TalkListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */; };
 		B64DBDF5528FF6F9CD6EA1CF /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888EFB73B482C079F6B66772 /* Pods_ChatApp.framework */; };
@@ -100,7 +100,7 @@
 		4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkRoomCell.xib; sourceTree = "<group>"; };
 		4AB3954425B1D80300B55059 /* TalkRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomCell.swift; sourceTree = "<group>"; };
 		4ABCC29625C833640008F056 /* TalkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListCell.swift; sourceTree = "<group>"; };
-		4ABCC2DE25C841BC0008F056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AEFDBD525ADC9E3002F71F3 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListController.swift; sourceTree = "<group>"; };
 		6AE5ABF9ADFAC2B7E9CC99B2 /* Pods-ChatAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				4A3F439125AC912C008D3424 /* AppDelegate.swift */,
 				4A3F439A25AC912D008D3424 /* Assets.xcassets */,
 				4A3F439C25AC912D008D3424 /* LaunchScreen.storyboard */,
-				4ABCC2DE25C841BC0008F056 /* GoogleService-Info.plist */,
+				4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */,
 				4A3F439F25AC912D008D3424 /* Info.plist */,
 			);
 			path = ChatApp;
@@ -401,7 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ABCC2DF25C841BC0008F056 /* GoogleService-Info.plist in Resources */,
+				4ABCC2E725C84A9C0008F056 /* GoogleService-Info.plist in Resources */,
 				4A3F43C725AC9152008D3424 /* .gitignore in Resources */,
 				4A3F43DD25AC9470008D3424 /* MainTab.storyboard in Resources */,
 				4A25E5ED25B71BBB0060514C /* SignUp.storyboard in Resources */,
