@@ -44,14 +44,19 @@ class TalkListController: UIViewController {
         
         configureUI()
         confirmLoggedInUser()
-        fetchLoginUserInfo()
-        fetchTalkRoomInfo()
-        
+    
         talkListTableView.delegate = self
         talkListTableView.dataSource = self
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchLoginUserInfo()
+        fetchTalkRoomInfo()
+        
+    }
     
     
     //    MARK: - Helper
