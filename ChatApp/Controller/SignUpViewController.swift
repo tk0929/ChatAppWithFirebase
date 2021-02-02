@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     
     
     
+//    MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,15 @@ class SignUpViewController: UIViewController {
         passwordTextField.delegate = self
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+        
+    }
+    
     
     
     private func configureUI() {
@@ -43,6 +54,13 @@ class SignUpViewController: UIViewController {
         
     }
     
+    @IBAction func tappedAlreadyHaveAccountButton(_ sender: UIButton) {
+        
+        let storyBoard = UIStoryboard(name:"Login", bundle: nil)
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController" )
+        navigationController?.pushViewController(loginViewController, animated: true)
+        
+    }
     //    登録ボタン押下したときにprofileimageの情報ををfirestore,storageに保存している
     @IBAction func tappedRegisterButton(_ sender: UIButton) {
         

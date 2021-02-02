@@ -78,8 +78,7 @@ class TalkListController: UIViewController {
         
         do{
             try Auth.auth().signOut()
-            let signUpViweController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "signUpViweController")
-            self.present(signUpViweController, animated: true, completion: nil)
+            pushLoginViewController()
             
         }catch{
             print("ログアウトに失敗しました。 \(error)")
@@ -87,6 +86,27 @@ class TalkListController: UIViewController {
         
         
     }
+    
+    private func confirmLoggedInUser() {
+        
+        if Auth.auth().currentUser?.uid == nil {
+            pushLoginViewController()
+        }
+        
+    }
+    
+    
+    private func pushLoginViewController() {
+        
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        let nc = UINavigationController(rootViewController: signUpViewController)
+        nc.modalPresentationStyle = .fullScreen
+        self.present(nc, animated: true, completion: nil)
+        
+        
+    }
+    
     
     @IBAction func tappedRightButton(_ sender: UIBarButtonItem) {
         
@@ -96,6 +116,26 @@ class TalkListController: UIViewController {
         //        navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
         
+    }
+    
+    
+    
+    
+    private func fetchLoginUserInfo() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, err) in
+            if let err = err {
+                print("ユーザー情報の取得に失敗しました。\(err)")
+                return
+            }
+            
+            guard let snapshot = snapshot, let dic = snapshot.data() else { return }
+            
+            let user = User(dic: dic)
+            self.user = user
+        }
     }
     
     
@@ -190,36 +230,6 @@ class TalkListController: UIViewController {
         
     }
     
-    private func confirmLoggedInUser() {
-        
-        if Auth.auth().currentUser?.uid == nil {
-            
-            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-            let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            signUpViewController.modalPresentationStyle = .fullScreen
-            self.present(signUpViewController, animated: true, completion: nil)
-            
-        }
-        
-    }
-    
-    
-    private func fetchLoginUserInfo() {
-        
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, err) in
-            if let err = err {
-                print("ユーザー情報の取得に失敗しました。\(err)")
-                return
-            }
-            
-            guard let snapshot = snapshot, let dic = snapshot.data() else { return }
-            
-            let user = User(dic: dic)
-            self.user = user
-        }
-    }
     
     
     

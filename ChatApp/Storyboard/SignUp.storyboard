@@ -103,6 +103,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-DD-y42">
                                 <rect key="frame" x="92" y="614" width="230" height="30"/>
                                 <state key="normal" title="アカウントをお持ちの方はこちら"/>
+                                <connections>
+                                    <action selector="tappedAlreadyHaveAccountButton:" destination="jim-60-a5F" eventType="touchUpInside" id="PZf-rq-tQA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MTs-cV-2il"/>
@@ -118,6 +121,7 @@
                             <constraint firstItem="FZL-ui-caf" firstAttribute="top" secondItem="nMK-MC-Kib" secondAttribute="bottom" constant="30" id="t74-3b-xxT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cqP-SA-CRA"/>
                     <connections>
                         <outlet property="alredyHaveAccountButton" destination="m3D-DD-y42" id="3aH-EM-LJW"/>
                         <outlet property="emailTextField" destination="Nlp-oe-NwT" id="tB0-7u-sWh"/>
@@ -129,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-0V-zRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="120"/>
+            <point key="canvasLocation" x="1055.072463768116" y="119.86607142857142"/>
         </scene>
     </scenes>
     <resources>

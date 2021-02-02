@@ -68,10 +68,16 @@
                                 <state key="normal" title="ログイン">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedLoginButton:" destination="fw0-sm-6wb" eventType="touchUpInside" id="isC-uI-RXo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBr-lB-a2m">
                                 <rect key="frame" x="92" y="536" width="230" height="30"/>
                                 <state key="normal" title="まだアカウントをお持ちでない方"/>
+                                <connections>
+                                    <action selector="tappedDontHaveAccountButton:" destination="fw0-sm-6wb" eventType="touchUpInside" id="cG8-XI-W5n"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p9-ks-daI">
                                 <rect key="frame" x="136.5" y="124" width="141" height="72"/>

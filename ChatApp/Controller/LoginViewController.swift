@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -20,6 +21,24 @@ class LoginViewController: UIViewController {
 
     }
     
-
-
+    
+    func configureUI() {
+        
+        loginButton.layer.cornerRadius = 8
+        
+    }
+    
+    
+    @IBAction func tappedDontHaveAccountButton(_ sender: UIButton) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func tappedLoginButton(_ sender: UIButton) {
+        
+    
+        
+    }
+    
 }
