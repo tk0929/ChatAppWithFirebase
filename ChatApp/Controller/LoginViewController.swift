@@ -46,6 +46,11 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print("ログインに失敗しました。\(error)")
             }
+//            ログイン時にトークルームの情報をFirestoreからもってくる
+            let nc = self.presentingViewController as! UINavigationController
+            let talkListViewController = nc.viewControllers[nc.viewControllers.count - 1] as? TalkListController
+            talkListViewController?.fetchTalkRoomInfo()
+            
             self.dismiss(animated: true, completion: nil)
         }
             

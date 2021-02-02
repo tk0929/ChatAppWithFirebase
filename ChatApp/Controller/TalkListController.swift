@@ -17,6 +17,7 @@ class TalkListController: UIViewController {
     
     private let cellId = "CellId"
     private var talkRoom = [TalkRoom]()
+    private var talkRoomListner: ListenerRegistration?
     
     
     private var user: User? {
@@ -44,7 +45,8 @@ class TalkListController: UIViewController {
         
         configureUI()
         confirmLoggedInUser()
-    
+        fetchTalkRoomInfo()
+        
         talkListTableView.delegate = self
         talkListTableView.dataSource = self
         
@@ -54,7 +56,7 @@ class TalkListController: UIViewController {
         super.viewWillAppear(animated)
         
         fetchLoginUserInfo()
-        fetchTalkRoomInfo()
+        
         
     }
     
@@ -144,9 +146,13 @@ class TalkListController: UIViewController {
     }
     
     
-    private func fetchTalkRoomInfo() {
+  func fetchTalkRoomInfo() {
         
-        Firestore.firestore().collection("talkRoom").addSnapshotListener { ( snapShot, error ) in
+        talkRoomListner?.remove()
+        talkRoom.removeAll()
+        talkListTableView.reloadData()
+        
+        talkRoomListner = Firestore.firestore().collection("talkRoom").addSnapshotListener { ( snapShot, error ) in
             
             if let error = error {
                 print("TalkRoomの情報の取得に失敗しました。\(error)")
