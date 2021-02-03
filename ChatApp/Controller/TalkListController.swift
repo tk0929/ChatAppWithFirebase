@@ -17,6 +17,7 @@ class TalkListController: UIViewController {
     
     private let cellId = "CellId"
     private var talkRoom = [TalkRoom]()
+    private var talkRoomListner: ListenerRegistration?
     
     
     private var user: User? {
@@ -44,7 +45,6 @@ class TalkListController: UIViewController {
         
         configureUI()
         confirmLoggedInUser()
-        fetchLoginUserInfo()
         fetchTalkRoomInfo()
         
         talkListTableView.delegate = self
@@ -52,6 +52,13 @@ class TalkListController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchLoginUserInfo()
+        
+        
+    }
     
     
     //    MARK: - Helper
@@ -78,8 +85,7 @@ class TalkListController: UIViewController {
         
         do{
             try Auth.auth().signOut()
-            let signUpViweController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "signUpViweController")
-            self.present(signUpViweController, animated: true, completion: nil)
+            pushLoginViewController()
             
         }catch{
             print("ログアウトに失敗しました。 \(error)")
@@ -87,6 +93,27 @@ class TalkListController: UIViewController {
         
         
     }
+    
+    private func confirmLoggedInUser() {
+        
+        if Auth.auth().currentUser?.uid == nil {
+            pushLoginViewController()
+        }
+        
+    }
+    
+    
+    private func pushLoginViewController() {
+        
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        let nc = UINavigationController(rootViewController: signUpViewController)
+        nc.modalPresentationStyle = .fullScreen
+        self.present(nc, animated: true, completion: nil)
+        
+        
+    }
+    
     
     @IBAction func tappedRightButton(_ sender: UIBarButtonItem) {
         
@@ -99,9 +126,33 @@ class TalkListController: UIViewController {
     }
     
     
-    private func fetchTalkRoomInfo() {
+    
+    
+    private func fetchLoginUserInfo() {
         
-        Firestore.firestore().collection("talkRoom").addSnapshotListener { ( snapShot, error ) in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, err) in
+            if let err = err {
+                print("ユーザー情報の取得に失敗しました。\(err)")
+                return
+            }
+            
+            guard let snapshot = snapshot, let dic = snapshot.data() else { return }
+            
+            let user = User(dic: dic)
+            self.user = user
+        }
+    }
+    
+    
+  func fetchTalkRoomInfo() {
+        
+        talkRoomListner?.remove()
+        talkRoom.removeAll()
+        talkListTableView.reloadData()
+        
+        talkRoomListner = Firestore.firestore().collection("talkRoom").addSnapshotListener { ( snapShot, error ) in
             
             if let error = error {
                 print("TalkRoomの情報の取得に失敗しました。\(error)")
@@ -190,36 +241,6 @@ class TalkListController: UIViewController {
         
     }
     
-    private func confirmLoggedInUser() {
-        
-        if Auth.auth().currentUser?.uid == nil {
-            
-            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-            let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            signUpViewController.modalPresentationStyle = .fullScreen
-            self.present(signUpViewController, animated: true, completion: nil)
-            
-        }
-        
-    }
-    
-    
-    private func fetchLoginUserInfo() {
-        
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, err) in
-            if let err = err {
-                print("ユーザー情報の取得に失敗しました。\(err)")
-                return
-            }
-            
-            guard let snapshot = snapshot, let dic = snapshot.data() else { return }
-            
-            let user = User(dic: dic)
-            self.user = user
-        }
-    }
     
     
     
