@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import PKHUD
 
 class LoginViewController: UIViewController {
     
@@ -15,17 +16,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var dontHaveAccountButton: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureUI()
+        
     }
+    
     
     
     func configureUI() {
         
         loginButton.layer.cornerRadius = 8
         
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     
@@ -40,20 +49,23 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextFIeld.text else { return }
         
-  
+        HUD.show(.progress)
+        
         Auth.auth().signIn(withEmail: email, password:password) { ( result , error ) in
             
             if let error = error {
                 print("ログインに失敗しました。\(error)")
+                HUD.hide()
             }
-//            ログイン時にトークルームの情報をFirestoreからもってくる
+            //            ログイン時にトークルームの情報をFirestoreからもってくる
+            HUD.hide()
             let nc = self.presentingViewController as! UINavigationController
             let talkListViewController = nc.viewControllers[nc.viewControllers.count - 1] as? TalkListController
             talkListViewController?.fetchTalkRoomInfo()
             
             self.dismiss(animated: true, completion: nil)
         }
-            
+        
     }
     
 }
