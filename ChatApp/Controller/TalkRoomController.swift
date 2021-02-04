@@ -33,18 +33,39 @@ class TalkRoomController: UIViewController {
         super.viewDidLoad()
         
         
+        setUpTableView()
+        fetchMessage()
+        
+    }
+    
+    private func setUpNotification() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillShow(){
+
+    }
+    
+    @objc func keyboardWillHide() {
+        
+    }
+    
+    
+    
+    
+    private func setUpTableView() {
         talkRoomTableView.delegate = self
         talkRoomTableView.dataSource = self
         
         talkRoomTableView.register(UINib(nibName: "TalkRoomCell", bundle: nil), forCellReuseIdentifier: cellId)
         talkRoomTableView.backgroundColor = ColorSet.secondary
-        talkRoomTableView.contentInset = .init(top: 0, left: 0, bottom: 40, right: 0)
-        talkRoomTableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        
-        fetchMessage()
-        
+        talkRoomTableView.contentInset = .init(top: 0, left: 0, bottom: 60, right: 0)
+        //        talkRoomTableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 60, right: 0)
+        talkRoomTableView.keyboardDismissMode = .interactive
     }
-    
     
     override var inputAccessoryView: UIView? {
         
@@ -93,7 +114,7 @@ class TalkRoomController: UIViewController {
                     
                     self.talkRoomTableView.reloadData()
                     //メッセージ最下部へスクロール
-                    self.talkRoomTableView.scrollToRow(at: IndexPath(row: self.message.count - 1,  section: 0), at: .bottom, animated: true)
+                    self.talkRoomTableView.scrollToRow(at: IndexPath(row: self.message.count - 1,  section: 0), at: .bottom, animated: false)
                     
                     
                 case .modified:
