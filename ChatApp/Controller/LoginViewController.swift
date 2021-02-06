@@ -56,10 +56,11 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print("ログインに失敗しました。\(error)")
                 HUD.hide()
+                return
             }
             //            ログイン時にトークルームの情報をFirestoreからもってくる
             HUD.hide()
-            let nc = self.presentingViewController as! UINavigationController
+            let nc = self.presentedViewController as! UINavigationController
             let talkListViewController = nc.viewControllers[nc.viewControllers.count - 1] as? TalkListController
             talkListViewController?.fetchTalkRoomInfo()
             

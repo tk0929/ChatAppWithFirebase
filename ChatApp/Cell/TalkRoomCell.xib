@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" secondItem="VFK-f0-pol" secondAttribute="height" multiplier="1:1" id="pfr-0i-BgG"/>
                         </constraints>
                     </imageView>
-                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="相手のメッセージが入る" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-dd-UHL">
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="相手のメッセージが入る" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-dd-UHL">
                         <rect key="frame" x="80" y="25" width="250" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -39,7 +39,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="自分のメッセージが入る" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-C9-gCz">
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="自分のメッセージが入る" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-C9-gCz">
                         <rect key="frame" x="194" y="25" width="225" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
