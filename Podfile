@@ -12,6 +12,7 @@ target 'ChatApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Nuke'
+  pod 'PKHUD'
 
   target 'ChatAppTests' do
     inherit! :search_paths

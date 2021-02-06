@@ -15,12 +15,15 @@ class TalkRoomController: UIViewController {
     
     private let cellId = "cellId"
     private var message = [Message]()
-    
+    private let accessoryHeight: CGFloat = 100
+    private var safeAreaButtom: CGFloat {
+        self.view.safeAreaInsets.bottom
+    }
     
     private lazy var chatInputAccessoryView: ChatInputAccessoryView = {
         
         let view = ChatInputAccessoryView()
-        view.frame = .init(x: 0, y: 0, width: view.frame.width, height: 100)
+        view.frame = .init(x: 0, y: 0, width: view.frame.width, height: accessoryHeight)
         view.delegate = self
         return view
         
@@ -33,18 +36,60 @@ class TalkRoomController: UIViewController {
         super.viewDidLoad()
         
         
+        setUpTableView()
+        fetchMessage()
+        
+    }
+    
+    private func setUpNotification() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification){
+        guard let userInfo = notification.userInfo else { return }
+        
+        if let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue {
+            
+            
+            if keyboardFrame.height <= accessoryHeight { return }
+            let top = keyboardFrame.height - safeAreaButtom
+            var moveY = top - talkRoomTableView.contentOffset.y
+            
+            if talkRoomTableView.contentOffset.y != 60 {moveY -= 60}
+            
+            let contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
+            
+            talkRoomTableView.contentInset = contentInset
+            talkRoomTableView.scrollIndicatorInsets = contentInset
+            talkRoomTableView.contentOffset = CGPoint(x: 0, y: top)
+            
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        
+        talkRoomTableView.contentInset = .init(top: 0, left: 0, bottom: 60, right: 0)
+        talkRoomTableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 60, right: 0)
+
+    }
+    
+    
+    
+    
+    private func setUpTableView() {
         talkRoomTableView.delegate = self
         talkRoomTableView.dataSource = self
         
         talkRoomTableView.register(UINib(nibName: "TalkRoomCell", bundle: nil), forCellReuseIdentifier: cellId)
         talkRoomTableView.backgroundColor = ColorSet.secondary
-        talkRoomTableView.contentInset = .init(top: 0, left: 0, bottom: 40, right: 0)
-        talkRoomTableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        
-        fetchMessage()
-        
+        talkRoomTableView.contentInset = .init(top: 0, left: 0, bottom: 60, right: 0)
+        talkRoomTableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 60, right: 0)
+        talkRoomTableView.keyboardDismissMode = .interactive
     }
-    
     
     override var inputAccessoryView: UIView? {
         
@@ -93,7 +138,7 @@ class TalkRoomController: UIViewController {
                     
                     self.talkRoomTableView.reloadData()
                     //メッセージ最下部へスクロール
-                    self.talkRoomTableView.scrollToRow(at: IndexPath(row: self.message.count - 1,  section: 0), at: .bottom, animated: true)
+                    self.talkRoomTableView.scrollToRow(at: IndexPath(row: self.message.count - 1,  section: 0), at: .bottom, animated: false)
                     
                     
                 case .modified:

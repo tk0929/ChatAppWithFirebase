@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import PKHUD
 
 class SignUpViewController: UIViewController {
     
@@ -20,7 +21,7 @@ class SignUpViewController: UIViewController {
     
     
     
-//    MARK: - Lifecycle
+    //    MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,12 @@ class SignUpViewController: UIViewController {
         
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
     @IBAction func tappedAlreadyHaveAccountButton(_ sender: UIButton) {
         
         let storyBoard = UIStoryboard(name:"Login", bundle: nil)
@@ -64,8 +71,10 @@ class SignUpViewController: UIViewController {
     //    登録ボタン押下したときにprofileimageの情報ををfirestore,storageに保存している
     @IBAction func tappedRegisterButton(_ sender: UIButton) {
         
-        guard let image = profileImageButton.imageView?.image else { return }
-        guard let uplodeImage = image.jpegData(compressionQuality: 0.5) else { return }
+        let image = profileImageButton.imageView?.image ?? UIImage(named: "NoImage")
+        guard let uplodeImage = image?.jpegData(compressionQuality: 0.5) else { return }
+        
+        HUD.show(.progress)
         
         let fileName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
@@ -74,6 +83,7 @@ class SignUpViewController: UIViewController {
             if let error = error {
                 
                 print("Firestorageへの画像の保存に失敗しました: \(error)")
+                HUD.hide()
                 return
             }
             
@@ -82,8 +92,8 @@ class SignUpViewController: UIViewController {
             storageRef.downloadURL { (url, error) in
                 
                 if let error = error {
-                    
                     print("Firestorageからのダウンロードに失敗しました。: \(error)")
+                    HUD.hide()
                     return
                 }
                 
@@ -91,7 +101,7 @@ class SignUpViewController: UIViewController {
                 self.createUser(profileImageUrl: urlString)
                 
             }
-        
+            
         }
         
     }
@@ -105,6 +115,7 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("認証情報の保存に失敗しました。\(error)")
+                HUD.hide()
                 return
             }
             
@@ -124,10 +135,13 @@ class SignUpViewController: UIViewController {
             Firestore.firestore().collection("users").document(uid).setData(docData) { (error) in
                 if let error = error {
                     print("Firestoreへの保存に失敗しました。\(error)")
+                    HUD.hide()
                     return
                 }
                 
                 print("Firestoreへの情報の保存が成功しました。")
+                
+                HUD.hide()
                 
                 self.dismiss(animated: true, completion: nil)
                 
