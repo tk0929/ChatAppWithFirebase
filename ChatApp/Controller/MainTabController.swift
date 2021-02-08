@@ -12,19 +12,19 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("MainTabController")
+        UITabBar.appearance().tintColor = ColorSet.primary
+        UITabBar.appearance().barTintColor = ColorSet.secondary
+        
         viewControllers?.enumerated().forEach({ (index,viewController) in
             
             switch index {
-            
             case 0:
                 setTabBarIcon(viewController, title: "トーク", imageName: "TalkIcon")
       
             case 1:
                 setTabBarIcon(viewController, title: "メモ", imageName: "MemoIcon")
-            
             default: break
-                
-                
             }
          
         })

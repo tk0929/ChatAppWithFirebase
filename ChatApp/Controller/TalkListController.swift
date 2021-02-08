@@ -43,8 +43,9 @@ class TalkListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("TalkListController")
         configureUI()
-        confirmLoggedInUser()
+//        confirmLoggedInUser()
         fetchTalkRoomInfo()
         
         talkListTableView.delegate = self
@@ -54,9 +55,8 @@ class TalkListController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         fetchLoginUserInfo()
-        
         
     }
     
@@ -111,17 +111,12 @@ class TalkListController: UIViewController {
         nc.modalPresentationStyle = .fullScreen
         self.present(nc, animated: true, completion: nil)
         
-        
     }
     
     
     @IBAction func tappedRightButton(_ sender: UIBarButtonItem) {
-        
-        let storyboard = UIStoryboard(name: "UserList", bundle: nil)
-        let userListViewController = storyboard.instantiateViewController(withIdentifier: "UserListViewController")
-        let navigationController = UINavigationController.init(rootViewController: userListViewController)
-        //        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
+    
+        performSegue(withIdentifier: "toUserList", sender: nil)
         
     }
     

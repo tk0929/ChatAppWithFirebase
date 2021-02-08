@@ -19,12 +19,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("LoginViewController")
         configureUI()
+        navigationController?.isNavigationBarHidden = true
+        
         
     }
-    
-    
     
     func configureUI() {
         
@@ -39,8 +39,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func tappedDontHaveAccountButton(_ sender: UIButton) {
-        
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -60,13 +59,16 @@ class LoginViewController: UIViewController {
             }
             //            ログイン時にトークルームの情報をFirestoreからもってくる
             HUD.hide()
-            let nc = self.presentedViewController as! UINavigationController
-            let talkListViewController = nc.viewControllers[nc.viewControllers.count - 1] as? TalkListController
-            talkListViewController?.fetchTalkRoomInfo()
+//            let nc = self.presentingViewController as! UINavigationController
+//            let talkListViewController = nc.viewControllers[nc.viewControllers.count - 1] as? TalkListController
+//            talkListViewController?.fetchTalkRoomInfo()
             
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "toMainTab", sender: nil)
+            
+//            self.dismiss(animated: true, completion: nil)
         }
         
     }
+    
     
 }
