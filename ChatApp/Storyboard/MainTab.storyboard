@@ -9,7 +9,7 @@
         <!--Main Tab Controller-->
         <scene sceneID="5uw-zd-t2u">
             <objects>
-                <tabBarController id="4uD-YC-1uJ" customClass="MainTabController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4uD-YC-1uJ" customClass="MainTabController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uiO-LS-f0C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

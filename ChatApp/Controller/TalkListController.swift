@@ -85,7 +85,7 @@ class TalkListController: UIViewController {
         
         do{
             try Auth.auth().signOut()
-            pushLoginViewController()
+            self.dismiss(animated: true, completion: nil)
             
         }catch{
             print("ログアウトに失敗しました。 \(error)")
