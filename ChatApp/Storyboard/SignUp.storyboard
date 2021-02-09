@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MLE-wK-1EK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,13 +11,13 @@
         <!--Sign Up View Controller-->
         <scene sceneID="Z6J-rx-55G">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jim-60-a5F" customClass="SignUpViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jim-60-a5F" customClass="SignUpViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5od-UV-rnA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djB-MJ-sPN">
-                                <rect key="frame" x="132" y="84" width="150" height="150"/>
+                                <rect key="frame" x="132" y="128" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="djB-MJ-sPN" secondAttribute="height" multiplier="1:1" id="mVO-Gh-Xge"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="nMK-MC-Kib">
-                                <rect key="frame" x="57" y="254" width="300" height="240"/>
+                                <rect key="frame" x="57" y="298" width="300" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="et7-aW-EuN">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="63.5"/>
@@ -86,7 +86,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-ui-caf">
-                                <rect key="frame" x="132" y="524" width="150" height="40"/>
+                                <rect key="frame" x="132" y="568" width="150" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="8cm-Se-pY4"/>
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-DD-y42">
-                                <rect key="frame" x="92" y="614" width="230" height="30"/>
+                                <rect key="frame" x="92" y="658" width="230" height="30"/>
                                 <state key="normal" title="アカウントをお持ちの方はこちら"/>
                                 <connections>
                                     <action selector="tappedAlreadyHaveAccountButton:" destination="jim-60-a5F" eventType="touchUpInside" id="PZf-rq-tQA"/>
@@ -129,11 +129,40 @@
                         <outlet property="profileImageButton" destination="djB-MJ-sPN" id="MWk-xf-KHj"/>
                         <outlet property="registerButton" destination="FZL-ui-caf" id="xga-P2-urK"/>
                         <outlet property="userNameTextField" destination="PXu-8r-AxM" id="ySq-Ha-crz"/>
+                        <segue destination="jCB-zL-q0j" kind="presentation" identifier="toLogin" modalPresentationStyle="fullScreen" id="1R3-m9-GmZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-0V-zRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.072463768116" y="119.86607142857142"/>
+            <point key="canvasLocation" x="2503" y="120"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="ek4-h2-Rt9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="jCB-zL-q0j" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zFI-t2-3rJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeO-oQ-STc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3718.115942028986" y="119.86607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LB5-SD-Sek">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtK-7V-4PY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MLE-wK-1EK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cec-B9-Puc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jim-60-a5F" kind="relationship" relationship="rootViewController" id="esB-iO-Qcj"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1717" y="120"/>
         </scene>
     </scenes>
     <resources>

@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("SignUpViewController")
         configureUI()
         emailTextField.delegate = self
         userNameTextField.delegate = self
@@ -63,9 +64,11 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedAlreadyHaveAccountButton(_ sender: UIButton) {
         
-        let storyBoard = UIStoryboard(name:"Login", bundle: nil)
-        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController" )
-        navigationController?.pushViewController(loginViewController, animated: true)
+//        let storyBoard = UIStoryboard(name:"Login", bundle: nil)
+//        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController" )
+//        navigationController?.pushViewController(loginViewController, animated: true)
+        
+        performSegue(withIdentifier: "toLogin", sender: nil)
         
     }
     //    登録ボタン押下したときにprofileimageの情報ををfirestore,storageに保存している

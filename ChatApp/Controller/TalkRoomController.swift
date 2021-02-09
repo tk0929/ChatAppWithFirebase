@@ -35,7 +35,7 @@ class TalkRoomController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print("TalkRoomController")
         setUpTableView()
         fetchMessage()
         
@@ -77,9 +77,7 @@ class TalkRoomController: UIViewController {
 
     }
     
-    
-    
-    
+
     private func setUpTableView() {
         talkRoomTableView.delegate = self
         talkRoomTableView.dataSource = self

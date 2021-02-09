@@ -21,6 +21,7 @@ class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("UserListViewController")
         configureUI()
         fetchUserInfoFromFirestore()
         userListTableView.delegate = self

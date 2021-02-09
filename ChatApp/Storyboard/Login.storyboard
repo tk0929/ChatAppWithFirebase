@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fw0-sm-6wb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Title-->
         <scene sceneID="bAv-6k-BpN">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fw0-sm-6wb" customClass="LoginViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,16 +99,28 @@
                             <constraint firstItem="3p9-ks-daI" firstAttribute="top" secondItem="HSK-LZ-nap" secondAttribute="top" constant="80" id="rgd-7H-y6c"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="IbJ-Wj-urw"/>
                     <connections>
                         <outlet property="dontHaveAccountButton" destination="OBr-lB-a2m" id="NoX-BC-n2d"/>
                         <outlet property="emailTextField" destination="CDF-4T-fSG" id="fY9-Co-tFg"/>
                         <outlet property="loginButton" destination="ZqK-A4-x7k" id="ZIP-Tg-33J"/>
                         <outlet property="passwordTextFIeld" destination="dn4-Q3-snz" id="3Xp-IS-QCM"/>
+                        <segue destination="Pqf-t6-Hca" kind="show" identifier="toMainTab" id="SUb-tb-WAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCe-eO-F1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="72"/>
+            <point key="canvasLocation" x="1820.289855072464" y="71.651785714285708"/>
+        </scene>
+        <!--MainTab-->
+        <scene sceneID="lBC-BG-5QP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainTab" id="Pqf-t6-Hca" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dkg-sH-8Tq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jG4-zq-7XW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2514.4927536231885" y="71.651785714285708"/>
         </scene>
     </scenes>
     <resources>

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Tab Controller-->
         <scene sceneID="Ca3-vH-Fm7">
             <objects>
-                <viewController id="ziN-zT-5UJ" sceneMemberID="viewController">
+                <viewController id="ziN-zT-5UJ" customClass="MainTabController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YfB-p5-2lK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcD-Ew-cUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160.8695652173915" y="169.41964285714286"/>
+            <point key="canvasLocation" x="1122" y="169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G4F-fB-MhR">

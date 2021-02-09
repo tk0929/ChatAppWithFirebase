@@ -99,11 +99,22 @@
                         <outlet property="logoutButton" destination="3mD-I7-nK2" id="WjY-pg-6TV"/>
                         <outlet property="rightButton" destination="ntT-il-B1g" id="liM-ll-Zqx"/>
                         <outlet property="talkListTableView" destination="CFs-MR-Jpe" id="q2k-Sv-PoY"/>
+                        <segue destination="7QS-CD-aca" kind="push" identifier="toUserList" id="otU-dY-rHK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ud2-O5-HdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="141"/>
+            <point key="canvasLocation" x="1216" y="179"/>
+        </scene>
+        <!--UserList-->
+        <scene sceneID="QZi-EK-oGb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserList" id="7QS-CD-aca" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1B2-zC-JWM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ut1-4a-XSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Oay-Hk-qk2">
