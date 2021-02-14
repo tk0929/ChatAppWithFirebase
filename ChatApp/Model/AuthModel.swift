@@ -10,26 +10,26 @@ import Firebase
 
 protocol AuthModelDelegate: class {
     
-    func didSignUp(newUser: User)
-    func didSignUpCompletion()
-    func didLogin()
+    func emailVerificationDidSend()
+    func didSignUpCompletion(newUser: User)
+    func didLoginCompletion()
     func errorDidOccur(error: Error)
     
 }
 
 
-class AuthModel: AuthModelDelegate {
+class AuthModel {
     
     weak var delegate: AuthModelDelegate?
     
-     func signUp(email: String, password: String, name: String, profileImageUrl: String) {
+     func signUp(email: String, password: String, name: String) {
         
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result,error) in
             
             guard let self = self else { return }
             
             if let user = result?.user {
-                self.updateDisplayName(name: name, of: user)
+                self.updateDisplayName(name: name, user: user)
             }else{
                 //               ここにエラーメッセージ
             }
@@ -37,41 +37,31 @@ class AuthModel: AuthModelDelegate {
         
     }
     
-    func updateDisplayName(name: String, of user: User) {
+    func updateDisplayName(name: String, user: User) {
         let request = user.createProfileChangeRequest()
         request.displayName = name
         request.commitChanges { [weak self] error in
             
             guard let self = self else { return }
             if error != nil {
-                self.sendEmailVerification(to: user)
+                self.delegate?.didSignUpCompletion(newUser: user)
             }
             //               ここにエラーメッセージ
         }
     }
     
-    func sendEmailVerification(to User: User) {
-        User.sendEmailVerification { [weak self] error in
+    func sendEmailVerification( user: User) {
+        user.sendEmailVerification { [weak self] error in
             
             guard let self = self else { return }
             if error != nil {
-                self.didSignUpCompletion()
+                self.delegate?.emailVerificationDidSend()
             }
 //     ここにエラーメッセージ
         }
         
     }
     
-    
-    
-    
-}
-
-extension AuthModelDelegate {
-    func didSignUp(newUser: User) {}
-    func didLogin(){}
-    func didSignUpCompletion(){}
-    func errorDidOccur(error: Error){}
 }
 
 

@@ -20,7 +20,7 @@ class TalkListController: UIViewController {
     private var talkRoomListner: ListenerRegistration?
     
     
-    private var user: User? {
+    private var user: UserModel? {
         
         didSet {
             navigationItem.title = user?.username
@@ -135,7 +135,7 @@ class TalkListController: UIViewController {
             
             guard let snapshot = snapshot, let dic = snapshot.data() else { return }
             
-            let user = User(dic: dic)
+            let user = UserModel(dic: dic)
             self.user = user
         }
     }
@@ -197,7 +197,7 @@ class TalkListController: UIViewController {
                     }
                     
                     guard let dic = userSnapShot?.data() else { return }
-                    let user = User(dic: dic)
+                    let user = UserModel(dic: dic)
                     user.uid = docmentChange.document.documentID
                     talkRoom.partnerUser = user
                     

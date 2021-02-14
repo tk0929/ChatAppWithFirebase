@@ -15,9 +15,8 @@ class TalkRoom {
     let members: [String]
     let createdAt: Timestamp
     
-    
     var latestMessage: Message?
-    var partnerUser: User?
+    var partnerUser: UserModel?
     var docmentId: String?
 
     init(dic: [String: Any]) {
