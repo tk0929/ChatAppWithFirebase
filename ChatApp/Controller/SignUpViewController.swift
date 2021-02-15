@@ -16,9 +16,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var alredyHaveAccountButton: UIButton!
     
+    var authModel = AuthModel()
     
     
     //    MARK: - Lifecycle
@@ -31,6 +32,7 @@ class SignUpViewController: UIViewController {
         emailTextField.delegate = self
         userNameTextField.delegate = self
         passwordTextField.delegate = self
+        authModel.delegate = self
         
     }
     
@@ -42,17 +44,16 @@ class SignUpViewController: UIViewController {
         
     }
     
-    
-    
+    // MARK: - Helper
     private func configureUI() {
         
         profileImageButton.layer.cornerRadius = 75
         profileImageButton.layer.borderWidth = 1
         profileImageButton.layer.borderColor = UIColor.lightGray.cgColor
         
-        registerButton.layer.cornerRadius = 15
-        registerButton.backgroundColor = .lightGray
-        registerButton.isEnabled = false
+        signUpButton.layer.cornerRadius = 15
+        signUpButton.backgroundColor = .lightGray
+        signUpButton.isEnabled = false
         
     }
     
@@ -63,21 +64,26 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func tappedAlreadyHaveAccountButton(_ sender: UIButton) {
-        
-//        let storyBoard = UIStoryboard(name:"Login", bundle: nil)
-//        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController" )
-//        navigationController?.pushViewController(loginViewController, animated: true)
-        
         performSegue(withIdentifier: "toLogin", sender: nil)
+    }
+    
+    @IBAction func tappedSignUpButton(_ sender: UIButton) {
+        
+        guard let userName = userNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        authModel.signUp(email: email, password: password, name: userName)
         
     }
-    //    登録ボタン押下したときにprofileimageの情報ををfirestore,storageに保存している
-    @IBAction func tappedRegisterButton(_ sender: UIButton) {
+    
+    
+    private func registerProfileImage(){
         
         let image = profileImageButton.imageView?.image ?? UIImage(named: "NoImage")
         guard let uplodeImage = image?.jpegData(compressionQuality: 0.5) else { return }
         
-        HUD.show(.progress)
+        //        HUD.show(.progress)
         
         let fileName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
@@ -101,7 +107,7 @@ class SignUpViewController: UIViewController {
                 }
                 
                 guard let urlString = url?.absoluteString else { return }
-                self.createUser(profileImageUrl: urlString)
+                //                self.createUser(profileImageUrl: urlString)
                 
             }
             
@@ -110,52 +116,7 @@ class SignUpViewController: UIViewController {
     }
     
     
-    private func createUser(profileImageUrl: String) {
-        
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            if let error = error {
-                print("認証情報の保存に失敗しました。\(error)")
-                HUD.hide()
-                return
-            }
-            
-            print("認証情報の保存に成功しました。")
-            
-            guard let uid = authResult?.user.uid else { return }
-            guard let username = self.userNameTextField.text else { return }
-            
-            // TODO: docDataをmodelへ切り出す
-            let docData = [
-                "email": email,
-                "username": username,
-                "createdAt": Timestamp(),
-                "profileImageUrl": profileImageUrl
-            ] as [String : Any]
-            
-            Firestore.firestore().collection("users").document(uid).setData(docData) { (error) in
-                if let error = error {
-                    print("Firestoreへの保存に失敗しました。\(error)")
-                    HUD.hide()
-                    return
-                }
-                
-                print("Firestoreへの情報の保存が成功しました。")
-                
-                HUD.hide()
-                
-                self.dismiss(animated: true, completion: nil)
-                
-            }
-            
-        }
-        
-    }
-    
-    
-    @IBAction func tappedProfileImageButotn(_ sender: UIButton) {
+    @IBAction func tappedProfileImageButton(_ sender: UIButton) {
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -180,19 +141,17 @@ extension SignUpViewController: UITextFieldDelegate {
         
         if emailText || userNameText || passwordText {
             
-            registerButton.isEnabled = false
-            registerButton.backgroundColor = .lightGray
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = .lightGray
             
         }else{
             
-            registerButton.isEnabled = true
-            registerButton.backgroundColor = .systemGreen
-            
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = .systemGreen
             
         }
         
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -211,7 +170,6 @@ extension SignUpViewController: UITextFieldDelegate {
 
 extension SignUpViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editImage = info[.editedImage] as? UIImage {
@@ -228,12 +186,31 @@ extension SignUpViewController: UIImagePickerControllerDelegate,UINavigationCont
         
         dismiss(animated: true, completion: nil)
         
-        
+    }
+    
+}
+
+
+//MARK: - AuthModelDelegate
+extension SignUpViewController: AuthModelDelegate {
+    func didLoginCompletion() {
+    }
+    
+    
+    func didSignUpCompletion(newUser: User) {
+        authModel.sendEmailVerification(user: newUser)
+        performSegue(withIdentifier: "toSendEmailVerification", sender: nil)
+    }
+    
+    func emailVerificationDidSend() {
+
+    }
+    
+    func errorDidOccur(error: Error) {
+        print(error.localizedDescription)
     }
     
     
     
 }
-
-
 

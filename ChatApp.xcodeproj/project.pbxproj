@@ -38,6 +38,8 @@
 		4A99A13D25C03E2C007E521D /* TalkRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99A13C25C03E2C007E521D /* TalkRoom.swift */; };
 		4AB3954025B1D65600B55059 /* TalkRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */; };
 		4AB3954525B1D80300B55059 /* TalkRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3954425B1D80300B55059 /* TalkRoomCell.swift */; };
+		4AB82FCB25D961D4003E4098 /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */; };
+		4AB82FD325DAB0FB003E4098 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */; };
 		4ABCC29725C833640008F056 /* TalkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCC29625C833640008F056 /* TalkListCell.swift */; };
 		4ABCC2E725C84A9C0008F056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */; };
 		4ABCC2EC25C96A7B0008F056 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2EB25C96A7B0008F056 /* Login.storyboard */; };
@@ -104,6 +106,8 @@
 		4A99A13C25C03E2C007E521D /* TalkRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoom.swift; sourceTree = "<group>"; };
 		4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkRoomCell.xib; sourceTree = "<group>"; };
 		4AB3954425B1D80300B55059 /* TalkRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomCell.swift; sourceTree = "<group>"; };
+		4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendEmail.storyboard; sourceTree = "<group>"; };
+		4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		4ABCC29625C833640008F056 /* TalkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListCell.swift; sourceTree = "<group>"; };
 		4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4ABCC2EB25C96A7B0008F056 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				4A3E170925CFFEC900BF49E1 /* MemoTabController.swift */,
 				4A1D49C425BC615300F98ADF /* UserListViewController.swift */,
 				4A25E5F425B720890060514C /* SignUpViewController.swift */,
+				4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */,
 				4A3F43EB25AC95FD008D3424 /* MainTabController.swift */,
 				4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */,
 				4A02E2E225B07D4600B72B29 /* TalkRoomController.swift */,
@@ -242,6 +247,7 @@
 				4A852AFC25D1777100261DA9 /* Root.storyboard */,
 				4A25E5EC25B71BBB0060514C /* SignUp.storyboard */,
 				4ABCC2EB25C96A7B0008F056 /* Login.storyboard */,
+				4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */,
 				4A3F43DC25AC9470008D3424 /* MainTab.storyboard */,
 				4A3F43E625AC9544008D3424 /* TalkListTab.storyboard */,
 				4A02E2DD25B07C9200B72B29 /* TalkRoom.storyboard */,
@@ -407,6 +413,7 @@
 				4AB3954025B1D65600B55059 /* TalkRoomCell.xib in Resources */,
 				4A3F439E25AC912D008D3424 /* LaunchScreen.storyboard in Resources */,
 				4A3F439B25AC912D008D3424 /* Assets.xcassets in Resources */,
+				4AB82FCB25D961D4003E4098 /* SendEmail.storyboard in Resources */,
 				4A3F43E225AC94B9008D3424 /* MemoTab.storyboard in Resources */,
 				4A3F43E725AC9544008D3424 /* TalkListTab.storyboard in Resources */,
 				4A1D49C025BC5FF900F98ADF /* UserList.storyboard in Resources */,
@@ -553,6 +560,7 @@
 				4A8C4FD525D71094000936EC /* AuthModel.swift in Sources */,
 				4A3F43F825AC9A77008D3424 /* Extension.swift in Sources */,
 				4A02E2E325B07D4600B72B29 /* TalkRoomController.swift in Sources */,
+				4AB82FD325DAB0FB003E4098 /* SendEmailViewController.swift in Sources */,
 				4A8EB4C325BC34BB00BD7BAE /* UserModel.swift in Sources */,
 				4A3E170A25CFFEC900BF49E1 /* MemoTabController.swift in Sources */,
 				4AEFDBE125AF1F9F002F71F3 /* TalkListController.swift in Sources */,

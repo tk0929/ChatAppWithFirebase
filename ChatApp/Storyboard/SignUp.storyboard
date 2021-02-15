@@ -130,6 +130,7 @@
                         <outlet property="signUpButton" destination="FZL-ui-caf" id="xga-P2-urK"/>
                         <outlet property="userNameTextField" destination="PXu-8r-AxM" id="ySq-Ha-crz"/>
                         <segue destination="jCB-zL-q0j" kind="presentation" identifier="toLogin" modalPresentationStyle="fullScreen" id="1R3-m9-GmZ"/>
+                        <segue destination="Xvq-0Z-59N" kind="show" identifier="toSendEmailVerification" id="9NS-c6-6s8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-0V-zRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -144,7 +145,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeO-oQ-STc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3060" y="120"/>
+            <point key="canvasLocation" x="3141" y="11"/>
+        </scene>
+        <!--SendEmailVerification-->
+        <scene sceneID="eij-mg-DzR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SendEmailVerification" id="Xvq-0Z-59N" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1SU-je-BPW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnQ-87-XNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3213" y="263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LB5-SD-Sek">

@@ -43,9 +43,10 @@ class AuthModel {
         request.commitChanges { [weak self] error in
             
             guard let self = self else { return }
-            if error != nil {
+            if error == nil {
                 self.delegate?.didSignUpCompletion(newUser: user)
             }
+         
             //               ここにエラーメッセージ
         }
     }
