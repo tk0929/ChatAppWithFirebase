@@ -119,11 +119,11 @@ class TalkRoomCell: UITableViewCell {
             myDateLabel.isHidden = true
             myMessageTextView.isHidden = true
             
-            if let urlString = message?.partnerUser?.profileImageUrl, let profileImageUrl = URL(string: urlString) {
-                
-                Nuke.loadImage(with: profileImageUrl , into: userImageView)
-
-            }
+//            if let urlString = message?.partnerUser?.profileImageUrl, let profileImageUrl = URL(string: urlString) {
+//                
+//                Nuke.loadImage(with: profileImageUrl , into: userImageView)
+//
+//            }
             
             
             if let message = message {

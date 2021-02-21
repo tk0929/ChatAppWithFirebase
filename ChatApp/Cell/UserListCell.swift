@@ -14,7 +14,7 @@ class UserListCell: UITableViewCell {
     @IBOutlet weak var userImageVIew: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    var user: User? {
+    var user: UserModel? {
         
         didSet {
             

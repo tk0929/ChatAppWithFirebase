@@ -25,7 +25,7 @@
                                 </constraints>
                                 <state key="normal" title="profile"/>
                                 <connections>
-                                    <action selector="tappedProfileImageButotn:" destination="jim-60-a5F" eventType="touchUpInside" id="r6Z-5z-fUC"/>
+                                    <action selector="tappedProfileImageButton:" destination="jim-60-a5F" eventType="touchUpInside" id="r6Z-5z-fUC"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="nMK-MC-Kib">
@@ -97,7 +97,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedRegisterButton:" destination="jim-60-a5F" eventType="touchUpInside" id="2gx-rI-uw1"/>
+                                    <action selector="tappedSignUpButton:" destination="jim-60-a5F" eventType="touchUpInside" id="2gx-rI-uw1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-DD-y42">
@@ -127,9 +127,10 @@
                         <outlet property="emailTextField" destination="Nlp-oe-NwT" id="tB0-7u-sWh"/>
                         <outlet property="passwordTextField" destination="7NP-Fi-tn2" id="Rbj-Cs-u3K"/>
                         <outlet property="profileImageButton" destination="djB-MJ-sPN" id="MWk-xf-KHj"/>
-                        <outlet property="registerButton" destination="FZL-ui-caf" id="xga-P2-urK"/>
+                        <outlet property="signUpButton" destination="FZL-ui-caf" id="xga-P2-urK"/>
                         <outlet property="userNameTextField" destination="PXu-8r-AxM" id="ySq-Ha-crz"/>
                         <segue destination="jCB-zL-q0j" kind="presentation" identifier="toLogin" modalPresentationStyle="fullScreen" id="1R3-m9-GmZ"/>
+                        <segue destination="Xvq-0Z-59N" kind="show" identifier="toSendEmailVerification" id="9NS-c6-6s8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-0V-zRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -144,12 +145,21 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeO-oQ-STc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3718.115942028986" y="119.86607142857142"/>
+            <point key="canvasLocation" x="3141" y="11"/>
+        </scene>
+        <!--SendEmailVerification-->
+        <scene sceneID="eij-mg-DzR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SendEmailVerification" id="Xvq-0Z-59N" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1SU-je-BPW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnQ-87-XNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3213" y="263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LB5-SD-Sek">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jtK-7V-4PY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MLE-wK-1EK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cec-B9-Puc">
@@ -161,6 +171,7 @@
                         <segue destination="jim-60-a5F" kind="relationship" relationship="rootViewController" id="esB-iO-Qcj"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtK-7V-4PY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1717" y="120"/>
         </scene>

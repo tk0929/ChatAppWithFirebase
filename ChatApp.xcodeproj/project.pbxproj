@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F410C0427811E657D3E5AC4 /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F781022AFF48A519A0A4132 /* Pods_ChatApp_ChatAppUITests.framework */; };
-		32EBAEE60F5A1E82E49CB324 /* Pods_ChatAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0786A8B978017656F1715228 /* Pods_ChatAppTests.framework */; };
 		4A02E2DE25B07C9200B72B29 /* TalkRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A02E2DD25B07C9200B72B29 /* TalkRoom.storyboard */; };
 		4A02E2E325B07D4600B72B29 /* TalkRoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A02E2E225B07D4600B72B29 /* TalkRoomController.swift */; };
 		4A1D49C025BC5FF900F98ADF /* UserList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1D49BF25BC5FF900F98ADF /* UserList.storyboard */; };
@@ -34,18 +32,20 @@
 		4A852AF825D1775600261DA9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A852AF725D1775600261DA9 /* RootViewController.swift */; };
 		4A852AFD25D1777100261DA9 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A852AFC25D1777100261DA9 /* Root.storyboard */; };
 		4A8757DF25C57DC200B8036A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8757DE25C57DC200B8036A /* Message.swift */; };
-		4A8EB4C325BC34BB00BD7BAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EB4C225BC34BB00BD7BAE /* User.swift */; };
+		4A8C4FD525D71094000936EC /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C4FD425D71094000936EC /* AuthModel.swift */; };
+		4A8EB4C325BC34BB00BD7BAE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EB4C225BC34BB00BD7BAE /* UserModel.swift */; };
 		4A99A0FD25BDA794007E521D /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99A0FC25BDA794007E521D /* UserListCell.swift */; };
 		4A99A13D25C03E2C007E521D /* TalkRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99A13C25C03E2C007E521D /* TalkRoom.swift */; };
 		4AB3954025B1D65600B55059 /* TalkRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */; };
 		4AB3954525B1D80300B55059 /* TalkRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3954425B1D80300B55059 /* TalkRoomCell.swift */; };
+		4AB82FCB25D961D4003E4098 /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */; };
+		4AB82FD325DAB0FB003E4098 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */; };
 		4ABCC29725C833640008F056 /* TalkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCC29625C833640008F056 /* TalkListCell.swift */; };
 		4ABCC2E725C84A9C0008F056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */; };
 		4ABCC2EC25C96A7B0008F056 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABCC2EB25C96A7B0008F056 /* Login.storyboard */; };
 		4ABCC2F725C96BD20008F056 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCC2F625C96BD20008F056 /* LoginViewController.swift */; };
 		4AEFDBD625ADC9E3002F71F3 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDBD525ADC9E3002F71F3 /* ColorSet.swift */; };
 		4AEFDBE125AF1F9F002F71F3 /* TalkListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */; };
-		B64DBDF5528FF6F9CD6EA1CF /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888EFB73B482C079F6B66772 /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0786A8B978017656F1715228 /* Pods_ChatAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1828D4E0A24008868BF85C61 /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 		198A9494B6CCFC665B63E231 /* Pods-ChatAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		1F781022AFF48A519A0A4132 /* Pods_ChatApp_ChatAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp_ChatAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DAC4DBAFE36FDFDA375879 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4A02E2DD25B07C9200B72B29 /* TalkRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TalkRoom.storyboard; sourceTree = "<group>"; };
 		4A02E2E225B07D4600B72B29 /* TalkRoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomController.swift; sourceTree = "<group>"; };
@@ -102,11 +100,14 @@
 		4A852AF725D1775600261DA9 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4A852AFC25D1777100261DA9 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		4A8757DE25C57DC200B8036A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		4A8EB4C225BC34BB00BD7BAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A8C4FD425D71094000936EC /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		4A8EB4C225BC34BB00BD7BAE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4A99A0FC25BDA794007E521D /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		4A99A13C25C03E2C007E521D /* TalkRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoom.swift; sourceTree = "<group>"; };
 		4AB3953F25B1D65600B55059 /* TalkRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkRoomCell.xib; sourceTree = "<group>"; };
 		4AB3954425B1D80300B55059 /* TalkRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomCell.swift; sourceTree = "<group>"; };
+		4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendEmail.storyboard; sourceTree = "<group>"; };
+		4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		4ABCC29625C833640008F056 /* TalkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListCell.swift; sourceTree = "<group>"; };
 		4ABCC2E625C84A9C0008F056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4ABCC2EB25C96A7B0008F056 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		4AEFDBD525ADC9E3002F71F3 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListController.swift; sourceTree = "<group>"; };
 		6AE5ABF9ADFAC2B7E9CC99B2 /* Pods-ChatAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		888EFB73B482C079F6B66772 /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71ADC179341095D5733A2B7 /* Pods-ChatApp-ChatAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A28F012EAEE825CB4862E9 /* Pods-ChatApp-ChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B64DBDF5528FF6F9CD6EA1CF /* Pods_ChatApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32EBAEE60F5A1E82E49CB324 /* Pods_ChatAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,23 +138,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F410C0427811E657D3E5AC4 /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		40CA32C33E52CA4DD7153C5E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				888EFB73B482C079F6B66772 /* Pods_ChatApp.framework */,
-				1F781022AFF48A519A0A4132 /* Pods_ChatApp_ChatAppUITests.framework */,
-				0786A8B978017656F1715228 /* Pods_ChatAppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		4A3F438525AC912C008D3424 = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +154,6 @@
 				4A3F43B225AC912D008D3424 /* ChatAppUITests */,
 				4A3F438F25AC912C008D3424 /* Products */,
 				DB974ADDAFB66FD6CD42D975 /* Pods */,
-				40CA32C33E52CA4DD7153C5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,9 +206,10 @@
 		4A3F43D225AC9234008D3424 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4A8EB4C225BC34BB00BD7BAE /* User.swift */,
+				4A8EB4C225BC34BB00BD7BAE /* UserModel.swift */,
 				4A99A13C25C03E2C007E521D /* TalkRoom.swift */,
 				4A8757DE25C57DC200B8036A /* Message.swift */,
+				4A8C4FD425D71094000936EC /* AuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +221,7 @@
 				4A3E170925CFFEC900BF49E1 /* MemoTabController.swift */,
 				4A1D49C425BC615300F98ADF /* UserListViewController.swift */,
 				4A25E5F425B720890060514C /* SignUpViewController.swift */,
+				4AB82FD225DAB0FB003E4098 /* SendEmailViewController.swift */,
 				4A3F43EB25AC95FD008D3424 /* MainTabController.swift */,
 				4AEFDBE025AF1F9F002F71F3 /* TalkListController.swift */,
 				4A02E2E225B07D4600B72B29 /* TalkRoomController.swift */,
@@ -259,6 +247,7 @@
 				4A852AFC25D1777100261DA9 /* Root.storyboard */,
 				4A25E5EC25B71BBB0060514C /* SignUp.storyboard */,
 				4ABCC2EB25C96A7B0008F056 /* Login.storyboard */,
+				4AB82FCA25D961D4003E4098 /* SendEmail.storyboard */,
 				4A3F43DC25AC9470008D3424 /* MainTab.storyboard */,
 				4A3F43E625AC9544008D3424 /* TalkListTab.storyboard */,
 				4A02E2DD25B07C9200B72B29 /* TalkRoom.storyboard */,
@@ -424,6 +413,7 @@
 				4AB3954025B1D65600B55059 /* TalkRoomCell.xib in Resources */,
 				4A3F439E25AC912D008D3424 /* LaunchScreen.storyboard in Resources */,
 				4A3F439B25AC912D008D3424 /* Assets.xcassets in Resources */,
+				4AB82FCB25D961D4003E4098 /* SendEmail.storyboard in Resources */,
 				4A3F43E225AC94B9008D3424 /* MemoTab.storyboard in Resources */,
 				4A3F43E725AC9544008D3424 /* TalkListTab.storyboard in Resources */,
 				4A1D49C025BC5FF900F98ADF /* UserList.storyboard in Resources */,
@@ -567,9 +557,11 @@
 				4ABCC29725C833640008F056 /* TalkListCell.swift in Sources */,
 				4A99A13D25C03E2C007E521D /* TalkRoom.swift in Sources */,
 				4A3F439425AC912C008D3424 /* SceneDelegate.swift in Sources */,
+				4A8C4FD525D71094000936EC /* AuthModel.swift in Sources */,
 				4A3F43F825AC9A77008D3424 /* Extension.swift in Sources */,
 				4A02E2E325B07D4600B72B29 /* TalkRoomController.swift in Sources */,
-				4A8EB4C325BC34BB00BD7BAE /* User.swift in Sources */,
+				4AB82FD325DAB0FB003E4098 /* SendEmailViewController.swift in Sources */,
+				4A8EB4C325BC34BB00BD7BAE /* UserModel.swift in Sources */,
 				4A3E170A25CFFEC900BF49E1 /* MemoTabController.swift in Sources */,
 				4AEFDBE125AF1F9F002F71F3 /* TalkListController.swift in Sources */,
 				4A1D49C525BC615300F98ADF /* UserListViewController.swift in Sources */,

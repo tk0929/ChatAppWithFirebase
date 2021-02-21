@@ -11,8 +11,8 @@ import Firebase
 class UserListViewController: UIViewController {
     
     private let cellId = "cellId"
-    var users = [User]()
-    private var selectedUser: User?
+    var users = [UserModel]()
+    private var selectedUser: UserModel?
     
     
     @IBOutlet weak var userListTableView: UITableView!
@@ -86,7 +86,7 @@ class UserListViewController: UIViewController {
             snapShot?.documents.forEach({ (snapShot) in
                 
                 let dic = snapShot.data()
-                let user = User.init(dic: dic)
+                let user = UserModel.init(dic: dic)
                 user.uid = snapShot.documentID
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }

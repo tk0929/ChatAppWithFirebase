@@ -25,11 +25,11 @@ class TalkListCell: UITableViewCell {
             
             if let talkRoom = talkRoom {
                 
-                partnerNameLabel.text = talkRoom.partnerUser?.username
-            
-                guard let url = URL(string: talkRoom.partnerUser?.profileImageUrl ?? "") else { return }
-                Nuke.loadImage(with: url, into: userProfileImage)
-                
+//                partnerNameLabel.text = talkRoom.partnerUser?.username
+//            
+//                guard let url = URL(string: talkRoom.partnerUser?.profileImageUrl ?? "") else { return }
+//                Nuke.loadImage(with: url, into: userProfileImage)
+//                
                 dateLabel.text = dateFormatterForDataLabel(date: talkRoom.createdAt.dateValue())
                 
             }
